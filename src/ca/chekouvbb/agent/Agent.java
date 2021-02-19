@@ -114,6 +114,7 @@ public class Agent implements Runnable{
                 Action action = intentions.pop();
                 makeAction(action);
                 this.environment.manorUI();
+                Signal.handle(new Signal("INT"), sig -> agentClose());
                 try {
                     Thread.sleep(800);
                 }catch (Exception e) { }
